@@ -71,6 +71,8 @@ qemu_iso:
 zip: image
 	zip -FSj $(TARGET_ZIP) $(TARGET_IMAGE) $(TARGET_FILE_ID_DIZ)
 
+dist: image zip iso
+
 clean:
 	$(RM) $(TARGET_IMAGE)
 	$(RM) $(TARGET_144M_IMAGE)
@@ -79,4 +81,4 @@ clean:
 	$(RM) $(TARGET_ISO)
 	$(RM) $(TARGET_ZIP)
 
-.PHONY: qemu qemu_iso zip clean
+.PHONY: qemu qemu_iso zip dist clean
