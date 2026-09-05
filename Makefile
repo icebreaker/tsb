@@ -65,6 +65,9 @@ iso: floppy
 qemu: image
 	SDL_VIDEO_CENTERED=1 $(QEMU) -display sdl -drive file=$(TARGET_IMAGE),format=raw,if=floppy -boot a
 
+qemu_iso:
+	SDL_VIDEO_CENTERED=1 $(QEMU) -display sdl -cdrom $(TARGET_ISO) -boot d
+
 zip: image
 	zip -FSj $(TARGET_ZIP) $(TARGET_IMAGE) $(TARGET_FILE_ID_DIZ)
 
@@ -76,4 +79,4 @@ clean:
 	$(RM) $(TARGET_ISO)
 	$(RM) $(TARGET_ZIP)
 
-.PHONY: qemu zip clean
+.PHONY: qemu qemu_iso zip clean
