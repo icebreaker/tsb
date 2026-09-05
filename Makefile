@@ -65,6 +65,9 @@ iso: floppy
 qemu: image
 	SDL_VIDEO_CENTERED=1 $(QEMU) -display sdl -drive file=$(TARGET_IMAGE),format=raw,if=floppy -boot a
 
+qemu_stdio: image
+	SDL_VIDEO_CENTERED=1 $(QEMU) -display sdl -drive file=$(TARGET_IMAGE),format=raw,if=floppy -boot a -monitor stdio
+
 qemu_iso: iso
 	SDL_VIDEO_CENTERED=1 $(QEMU) -display sdl -cdrom $(TARGET_ISO) -boot d
 
