@@ -5,7 +5,7 @@ function build()
 
 function execute()
 {
-	make qemu_stdio
+	dot-term -hold -e make qemu_stdio
 }
 
 function clean()
