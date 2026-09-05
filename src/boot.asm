@@ -13,21 +13,43 @@
 ;
 ; What is the charge? Doing napkin math? Some succulent napkin math?
 ;
-;  1 paragraph  = 16 bytes
-; 32 paragraphs = 512 bytes
+;  1 paragraph  =   16 bytes
+; 16 paragraphs =  256 bytes
+; 32 paragraphs =  512 bytes
+; 64 paragraphs = 1024 bytes
 ;
-; 1 sector			= 512 bytes
-; 1 cylinder/track	= 18 sectors
-; 1 side			= 80 cylinders/tracks
-; 1 disk (1'44 MB)	= 2 sides
+; 1.44 (MB)
+;
+; 1 sector          = 512 bytes
+; 1 cylinder/track  =  18 sectors
+; 1 side            =  80 cylinders/tracks
+; 1 disk (1'44 MB)  =   2 sides
 ;
 ; 2 * 80 * 18 * 512 = 1474560 (B) = 1440 (KB) = 1.44 (MB)
 ;
-%define SECTORS 8                 ; 4096 bytes in paragraphs
+; 720 (KB)
+;
+; 1 sector          = 512 bytes
+; 1 cylinder/track  =   9 sectors
+; 1 side            =  80 cylinders/tracks
+; 1 disk (720 KB)   =   2 sides
+;
+; 2 * 80 * 9 * 512 = 737280 (B) = 720 (KB)
+;
+; 360 (KB)
+;
+; 1 sector          = 512 bytes
+; 1 cylinder/track  =   9 sectors
+; 1 side            =  40 cylinders/tracks
+; 1 disk (720 KB)   =   2 sides
+;
+; 2 * 40 * 9 * 512 = 368640 (B) = 360 (KB)
+;
+%define SECTORS 8                 ; 8 * 512 bytes (32 paragraphs) = 4096 bytes (256 paragraphs)
 %define IMAGE_SIZE SECTORS * 512  ; SECTORS * 512 bytes (32 paragraphs)
 
 bits 16                           ; 16 bit mode
-								  ; org = 07C0h
+                                  ; org = 07C0h:0000h
 
 ;
 ; This *arcane voodoo* is pretty much necessary in order to ensure that we can
@@ -43,7 +65,7 @@ times 71 db 0                     ; reserve some empty space for the BPB (assume
 _start:
 	cli                           ; disable interrupts
 
-	mov ax, 07C0h	              ; org = 07C0h
+	mov ax, 07C0h	              ; org = 07C0h:0000h
 	mov ds, ax
 	mov es, ax
 
