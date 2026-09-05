@@ -45,8 +45,8 @@ image: $(TARGET_IMAGE)
 
 floppy: image
 	dd bs=512 count=2880 if=/dev/zero of=$(TARGET_144M_IMAGE)
-	dd bs=737280 count=1 if=/dev/zero of=$(TARGET_720K_IMAGE)
-	dd bs=368640 count=1 if=/dev/zero of=$(TARGET_360K_IMAGE)
+	dd bs=512 count=1440 if=/dev/zero of=$(TARGET_720K_IMAGE)
+	dd bs=512 count=720  if=/dev/zero of=$(TARGET_360K_IMAGE)
 	dd status=noxfer conv=notrunc if=$(TARGET_IMAGE) of=$(TARGET_144M_IMAGE)
 	dd status=noxfer conv=notrunc if=$(TARGET_IMAGE) of=$(TARGET_720K_IMAGE)
 	dd status=noxfer conv=notrunc if=$(TARGET_IMAGE) of=$(TARGET_360K_IMAGE)
