@@ -1,0 +1,3 @@
+TinySol fits in a QR Code.  Decode on Linux as follows.
+
+zbarimg -q --raw -Sbinary QR.PNG > TINYSOL.COM

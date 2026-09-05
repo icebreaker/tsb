@@ -1,0 +1,7 @@
+This folder contains winnable savegames that can be loaded
+if you want to play guaranteed winnable hands.
+
+A ZIP file containing 640 wins can be downloaded at ClassicBits.net.
+
+See the TinySol User's Manual README.TXT for guidance.
+

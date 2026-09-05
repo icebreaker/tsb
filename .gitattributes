@@ -1,0 +1,5 @@
+Makefile linguist-vendored
+.dotmake linguist-vendored
+.editorconfig linguist-vendored
+vendor linguist-vendored
+vendor/**/* linguist-vendored

@@ -1,0 +1,26 @@
+----------- TinySol Version Feature Table -----------
+
+TSOL_F.COM  Full
+TSOL_M.COM  Medium
+TSOL_T.COM  Tiny
+TSOL_H.COM  Mini, High Resolultion
+TSOL_L.COM  Mini, Low Resolution
+TSOL_U.COM  Ultra Micro
+                                 Mini   Mini   Ultra  
+            Full   Medium Tiny   HiRez  LoRez  Micro
+Feature     3.5K   3.0K   2.8K   2.4K   2.2K   1.8K
+-----------------------------------------------------
+Keyboard     X      X      X      X      X      X
+LoRez (CGA)  X      X      X             X      X
+HiRez        X      X      X      X
+Mode Detect  X      X      X
+Scoring      X      X      X
+CongratWin   X      X      X
+Full Decor.  X      X      X
+Auto-Home    X      X      X
+Circles      X      X
+Auto-Finish  X      X
+Savestate    X      X
+Detect GRiD  X      X
+Save/Load    X
+Mouse        X
