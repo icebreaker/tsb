@@ -13,7 +13,7 @@
 ; this outside of the provided `Makefile`.
 ;
 %ifndef TINYSOL_COM
-	%define TINYSOL_COM 'vendor/tinysol/TINYSOL.COM'
+	%define TINYSOL_COM '../../vendor/tinysol/TINYSOL.COM'
 %endif
 
 %ifndef TINYSOL_TEXT_ATTR
