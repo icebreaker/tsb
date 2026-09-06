@@ -11,9 +11,9 @@ tiny_dos_init:
 	mov es, bx
 
 	;
-	; offset = int >> 2 = int * 4
+	; offset = int << 2 = int * 4
 	;
-	; ivt[offset    ] = offset  (IP)
+	; ivt[offset + 0] = offset  (IP)
 	; ivt[offset + 2] = segment (CS)
 	;
 
