@@ -5,16 +5,24 @@
 ; CX = CS
 ; DX = PSP
 tiny_dos_init:
-	cli                  ; disable interrupts
+	cli                      ; disable interrupts
 
 	xor bx, bx
 	mov es, bx
 
-	; install our custom `int 21h` interrupt handler into the IVT
+	;
+	; offset = int >> 2 = int * 4
+	;
+	; ivt[offset    ] = offset  (IP)
+	; ivt[offset + 2] = segment (CS)
+	;
+
+	mov word [es:00CCh], tiny_dos_int33_stub
+	mov word [es:00CEh], cx
+
 	mov word [es:0084h], tiny_dos_int21_stub
 	mov word [es:0086h], cx
 
-	; install our custom `int 20h` interrupt handler into the IVT
 	mov word [es:0080h], tiny_dos_int20_stub
 	mov word [es:0082h], cx
 
@@ -24,15 +32,21 @@ tiny_dos_init:
 	xor si, si
     xor di, di
 
-	sti                  ; enable interrupts
+	sti                      ; enable interrupts
 
 .init_psp:
-	mov ax, 20CDh        ; CD20 = int 20h
-	stosw                ; store AX in [ES:DI]
+%ifdef PEDANTIC
+	mov ax, 20CDh            ; CD20 = int 20h
+	stosw                    ; store AX in [ES:DI]
 
-	xor ax, ax           ; set AX to zero
-	mov cx, 07Fh         ; 128 - 1 = 127
-	rep stosw            ; store AX in [ES:DI]
+	xor ax, ax               ; set AX to zero
+	mov cx, 07Fh             ; 128 - 1 = 127
+	rep stosw                ; store AX in [ES:DI]
+%else
+	xor ax, ax               ; set AX to zero
+	mov cx, 080h             ; 128
+	rep stosw                ; store AX in [ES:DI]
+%endif
 
 .reset_reg:
 	xor di, di
@@ -49,6 +63,10 @@ tiny_dos_init:
 	xor dx, dx
 
 	ret
+
+tiny_dos_int33_stub:
+	xor ax, ax               ; 0000h = mouse/driver not available/installed
+	iret
 
 tiny_dos_int21_stub:
 	cmp ah, 04Ch

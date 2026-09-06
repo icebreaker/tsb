@@ -128,8 +128,10 @@ _start:
 
 	sti                          ; enable interrupts
 
-    xor ax, ax                   ; push 0000h into the stack so that 'ret'
-	push ax						 ; will end up jumping back to 07E0h:0000h, which then will execute the `int 20h`
+%ifdef PEDANTIC
+	xor ax, ax                   ; push 0000h into the stack so that 'ret'
+	push ax                      ; will end up jumping back to 07E0h:0000h, which then will execute the `int 20h`
+%endif
 
 	jmp 07E0h:0100h              ; far jump to 0100h
 
@@ -151,9 +153,9 @@ _start:
 	call puts
 	call halt
 
-boot_intro_msg: db 'BOOTING TINYSOL ...', 10, 13, '$'
-disk_reset_error_msg: db 'ERROR: COULD NOT RESET DISK ...', 10, 13, '$'
-disk_read_error_msg: db 'ERROR: COULD NOT READ DISK ...', 10, 13, '$'
+boot_intro_msg: db 'Booting TinySol...', 10, 13, '$'
+disk_reset_error_msg: db 'error: could not reset disk...', 10, 13, '$'
+disk_read_error_msg: db 'error: could not read disk...', 10, 13, '$'
 
 %include 'std.asm'
 %include 'dos.asm'
