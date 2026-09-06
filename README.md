@@ -16,10 +16,18 @@ Getting Started
 ---------------
 It will be *easy-peasy-lemon-squeezy* they said! It will be fun, they said!
 
-### Building from source
+### Dependencies
 
-* NASM (required)
-* QEMU (optional, needed for testing)
+| Name             | Note                                            |
+| ---------------- | ----------------------------------------------- |
+| make             | required                                        |
+| nasm             | required                                        |
+| qemu-system-i386 | optional (needed for testing)                   |
+| zip              | optional (needed for making the *.ZIP archive*) |
+| mkisofs          | optional (needed for making the *bootable ISO*) |
+| dd               | optional (needed for making the *floppy disks*) |
+
+### Building from source
 
 After installing the dependencies, simply type:
 
