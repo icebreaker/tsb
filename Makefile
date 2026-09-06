@@ -84,4 +84,4 @@ clean:
 	$(RM) $(TARGET_ISO)
 	$(RM) $(TARGET_ZIP)
 
-.PHONY: qemu qemu_iso zip dist clean
+.PHONY: qemu qemu_stdio qemu_iso zip dist clean
