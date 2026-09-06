@@ -5,10 +5,11 @@ This is a *bootable version* of [TinySol][tinysol].
 ![TINYSOLB](res/TINYSOLB.GIF)
 
 > [!WARNING]
-> The *save functionality* has been *stubbed out*, therefore *pressing* the
-> *'s' key* will simply result in a *no-op*.
+> *Mouse support* and the *save functionality* have been *stubbed out*
+> at the moment, therefore trying to use the *mouse* or *pressing* the *'s'
+> key* in order to save will simply result in a *no-op*.
 >
-> Please *awe a gander* at [src/dos.asm](src/dos.asm#L57) in order to learn
+> Please *awe a gander* at [src/dos.asm](src/dos.asm#L13) in order to learn
 > more about how this was done.
 
 Getting Started
