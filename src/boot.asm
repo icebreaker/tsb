@@ -1,4 +1,14 @@
 ;
+; Ideally we want to keep the "major.minor" version pair in sync with
+; the version of the actual `TINYSOL.COM` that we are embedding.
+;
+; 10 + 1 patch-versions should be more than enough ... famous last words!
+;
+%ifndef VERSION_STRING
+	%define VERSION_STRING "TinySol v1.3.0b"
+%endif
+
+;
 ; Guard and define these on the fly in case someone is building or including
 ; this outside of the provided `Makefile`.
 ;
