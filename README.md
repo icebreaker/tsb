@@ -86,4 +86,5 @@ Copyright (c) 2026, Mihail Szabolcs
 For additional licensing information be sure to consult the [TinySol][tinysol] manual and homepage.
 
 [tinysol]: https://classicbits.net/coding-and-software/my-software/monosol/
+[qemu]: https://www.qemu.org/
 [rawwrite32]: http://www.netbsd.org/~martin/rawrite32/
