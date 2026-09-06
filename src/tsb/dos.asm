@@ -1,5 +1,5 @@
-;
 ; ref: https://stanislavs.org/helppc/int_21.html
+; ref: https://stanislavs.org/helppc/int_33.html
 ;
 ; void tiny_dos_init(uint16_t cx, uint16_t dx)
 ; CX = CS
